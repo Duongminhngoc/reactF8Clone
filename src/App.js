@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Container, Grid } from "@mui/material";
+import FooterNav from "./components/dashboard/FooterNav";
+import LeftNav from "./components/dashboard/LeftNav";
+import MainContent from "./components/dashboard/MainContent";
+import TopMenu from "./components/dashboard/TopMenu";
+import "./App.css";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TopMenu />
+      <div className="main">
+        <div className="leftNav">
+          <LeftNav />
+        </div>
+        <div className="mainContent">
+          <MainContent />
+        </div>
+      </div>
+      <FooterNav />
     </div>
   );
 }

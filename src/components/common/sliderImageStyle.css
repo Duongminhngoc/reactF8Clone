@@ -1,0 +1,57 @@
+/* Tùy chỉnh độ rộng của các chấm */
+.slick-dots li {
+  width: 60px !important; /* Đặt độ rộng mong muốn */
+}
+
+/* Tùy chỉnh kích thước của vùng chứa chấm */
+.slick-dots {
+  width: 100%; /* Đặt độ rộng mong muốn */
+  display: flex;
+  justify-content: center;
+}
+
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.prev-arrow,
+.next-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* Các thuộc tính CSS khác cho nút chuyển slide */
+}
+.slick-prev {
+  z-index: 99;
+}
+.slick-prev,
+.slick-next {
+  width: 50px;
+  height: 50px;
+}
+.slick-prev:before {
+  left: 10px;
+  font-family: "slick";
+  font-size: 30px;
+  line-height: 1;
+  opacity: 0.75;
+  color: rgb(117, 116, 116);
+}
+.slick-next:before {
+  left: 10px;
+  font-family: "slick";
+  font-size: 30px;
+  line-height: 1;
+  opacity: 0.75;
+  color: rgb(117, 116, 116);
+}
+.dot {
+  margin-top: 8px;
+  width: 40px;
+  height: 10px;
+  border-radius: 15px;
+  background-color: rgb(158, 157, 157);
+}
