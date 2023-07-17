@@ -1,15 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { Box, Paper, Typography } from "@mui/material";
 import useStyles from "./styles";
-import { Stack, maxWidth } from "@mui/system";
+import { Stack, display, maxWidth } from "@mui/system";
 import listNav from "./listLeftNav";
 import LeftNavItem from "./LeftNavItem";
 const LeftNav = () => {
   const classes = useStyles();
   const [activeId, setActiveId] = useState(1);
+
+  const handleClick = (id) => {
+    setActiveId(id);
+  };
   return (
-    <Box style={{ paddingTop: "10px", marginLeft: "15px" }}>
+    <Box
+      style={{
+        paddingTop: "10px",
+        marginLeft: "15px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Paper
         elevation={0}
         sx={{
@@ -26,7 +39,7 @@ const LeftNav = () => {
           <AddCircleIcon
             color="primary"
             sx={{
-              fontSize: 60,
+              fontSize: 50,
             }}
           ></AddCircleIcon>
         </a>
@@ -34,8 +47,11 @@ const LeftNav = () => {
       {listNav.map((item) => (
         <LeftNavItem
           key={item.id}
+          activeId={activeId}
+          id={item.id}
           name={item.name}
           icon={item.iconComponent}
+          onClick={() => handleClick(item.id)}
         ></LeftNavItem>
       ))}
     </Box>

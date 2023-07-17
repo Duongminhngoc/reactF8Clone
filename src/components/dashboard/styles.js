@@ -1,6 +1,17 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  leftMenuItem: {
+    marginBottom: "15px",
+    height: "80px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  active: {
+    backgroundColor: "red",
+  },
   textOver: {
     overflow: "hidden",
     whiteSpace: "nowrap",
@@ -31,13 +42,43 @@ const useStyles = makeStyles((theme) => ({
     background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
   },
   imageBg: {
+    position: "relative",
+    cursor: "pointer",
     width: "100%",
     height: "auto",
     "& img": {
       maxWidth: "100%",
       maxHeight: "100%",
-      borderRadius: "5px",
+      borderRadius: "15px",
     },
+  },
+
+  submitBtn: {
+    margin: "auto",
+    position: "absolute",
+    height: "100%",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    top: 0,
+    opacity: 0,
+    transform: "translateY(10px)",
+    transition: "all 0.4s ease-out",
+    "& button": {
+      backgroundColor: "#fff",
+      color: "black",
+      borderRadius: "20px",
+      border: 0,
+      padding: "10px 20px",
+      outline: "none",
+      cursor: "pointer",
+    },
+  },
+
+  showButton: {
+    opacity: 1,
+    transform: "translateY(0)",
   },
   bgImage: {
     color: "green",
@@ -45,40 +86,7 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "cover",
     overflow: "hidden",
   },
-  bgImage2: {
-    position: "relative",
-    paddingTop: "25.25%",
-    "&::before": {
-      content: '""',
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      backgroundImage: `url(
-        "https://files.fullstack.edu.vn/f8-prod/courses/19/62f13cb607b4b.png"
-      )`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    },
-  },
-  bgImage3: {
-    position: "relative",
-    paddingTop: "25.25%",
-    "&::before": {
-      content: '""',
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      backgroundImage: `url(
-        "https://files.fullstack.edu.vn/f8-prod/courses/7.png"
-      )`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    },
-  },
+
   courseFreeRead: {
     display: "flex",
     color: "gray",
@@ -99,9 +107,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   footerNav: {
-    backgroundColor: "#121212",
-    color: "#ccc",
+    backgroundColor: "#181821",
+    color: "#a9b3bb",
     minHeight: "350px",
+    lineHeight: "1.5",
     padding: "60px 0 60px 0",
   },
 }));

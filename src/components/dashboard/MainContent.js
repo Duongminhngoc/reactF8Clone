@@ -1,20 +1,25 @@
-import { Card, CardContent, Grid, Typography } from "@mui/material";
-import React from "react";
+import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
+import React, { useState } from "react";
 import useStyles from "./styles";
 import { Box, Container, Paper } from "@material-ui/core";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import SliderImage from "../common/SliderImage";
-import Diversity3Icon from "@mui/icons-material/Diversity3";
 import { useSelector } from "react-redux";
 import {
   coursesProSelector,
   coursesFreeSelector,
   postsSelector,
 } from "../../redux/selectors";
+import CourseItem from "./courses/CourseItem";
+import CourseFreeItem from "./courses/CourseFreeItem";
+import PostItem from "./posts/PostItem";
+import LinkButton from "../common/LinkButton";
 const MainContent = () => {
   const classes = useStyles();
   const coursesPro = useSelector(coursesProSelector);
   const coursesFree = useSelector(coursesFreeSelector);
   const postsOutstanding = useSelector(postsSelector);
+
   return (
     <Box style={{ flexGrow: 1, margin: "10px 20px" }}>
       <Grid container spacing={3}>
@@ -25,37 +30,14 @@ const MainContent = () => {
       <Grid mt={3} container spacing={3} style={{ padding: "0 50px" }}>
         <Grid item className={classes.title}>
           <Typography variant="h5" style={{ fontWeight: "700" }}>
-            Khóa học mới
+            Khóa học pro
           </Typography>
         </Grid>
       </Grid>
 
       <Grid container spacing={3} style={{ padding: "0 50px" }}>
         {coursesPro.map((course) => (
-          <Grid key={course.id} item xs={3}>
-            <div className={classes.imageBg}>
-              {course.active ? (
-                <a href="#">
-                  <img src={course.bgImageUrl} alt={course.name} />
-                </a>
-              ) : (
-                <img src={course.bgImageUrl} alt={course.name} />
-              )}
-            </div>
-            <div>
-              <Typography className={classes.textOver}>
-                {course.name}
-              </Typography>
-              {course.corePrice && (
-                <Typography>{course.corePrice.toLocaleString()}đ</Typography>
-              )}
-              {course.disCountPrice && (
-                <Typography>
-                  {course.disCountPrice.toLocaleString()}đ
-                </Typography>
-              )}
-            </div>
-          </Grid>
+          <CourseItem key={course.id} course={course}></CourseItem>
         ))}
       </Grid>
 
@@ -77,32 +59,12 @@ const MainContent = () => {
           </Typography>
         </Grid>
         <Grid item>
-          <a href="#">Xem lộ trình</a>
+          <LinkButton text="Xem lộ trình" url=""></LinkButton>
         </Grid>
       </Grid>
       <Grid container spacing={3} style={{ padding: "0 50px" }}>
         {coursesFree.map((course) => (
-          <Grid key={course.id} item xs={3}>
-            <div className={classes.imageBg}>
-              <a href="#">
-                <img src={course.bgImageUrl} alt={course.name} />
-              </a>
-            </div>
-            <div>
-              <Typography className={classes.textOver}>
-                {course.name}
-              </Typography>
-              <div className={classes.courseFreeRead}>
-                <Diversity3Icon
-                  sx={{ fontSize: 20 }}
-                  style={{ marginRight: "5px" }}
-                ></Diversity3Icon>
-                <Typography style={{ fontSize: "15px" }}>
-                  {course.read.toLocaleString()}
-                </Typography>
-              </div>
-            </div>
-          </Grid>
+          <CourseFreeItem key={course.id} course={course}></CourseFreeItem>
         ))}
       </Grid>
 
@@ -124,33 +86,12 @@ const MainContent = () => {
           </Typography>
         </Grid>
         <Grid item>
-          <a href="#">Xem lộ trình</a>
+          <LinkButton text="Xem tất cả" url=""></LinkButton>
         </Grid>
       </Grid>
       <Grid container spacing={3} style={{ padding: "0 50px" }}>
         {postsOutstanding.map((post) => (
-          <Grid key={post.id} item xs={3}>
-            <div className={classes.imageBg}>
-              <img src={post.bgImageUrl} alt={post.name} />
-            </div>
-            <div>
-              <Typography className={classes.textOver}>{post.name}</Typography>
-            </div>
-            <div className={classes.postAuthor}>
-              <div className={classes.postAuthorAvatar}>
-                <img src={post.avatarUrl} alt={post.name} />
-              </div>
-              <Typography style={{ marginRight: "10px" }}>
-                {post.nickname}
-              </Typography>
-              <Typography
-                className={classes.courseFreeRead}
-                style={{ fontSize: "15px" }}
-              >
-                6 phút trước
-              </Typography>
-            </div>
-          </Grid>
+          <PostItem key={post.id} post={post}></PostItem>
         ))}
       </Grid>
     </Box>
