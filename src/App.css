@@ -6,6 +6,13 @@
   position: sticky;
   top: 10px;
   height: 100vh;
+  display: flex;
+  align-items: flex-start;
+}
+@media screen and (max-width: 899px) {
+  .leftNav {
+    display: none;
+  }
 }
 .mainContent {
   flex-grow: 1;

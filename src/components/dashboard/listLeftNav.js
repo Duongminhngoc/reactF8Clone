@@ -1,23 +1,31 @@
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import FlightTakeoffRoundedIcon from "@mui/icons-material/FlightTakeoffRounded";
+import LightbulbRoundedIcon from "@mui/icons-material/LightbulbRounded";
+import LibraryBooksRoundedIcon from "@mui/icons-material/LibraryBooksRounded";
 const listNav = [
   {
     id: 1,
     name: "Home",
-    iconComponent: "HomeRoundedIcon",
+    link: "/",
+    iconComponent: <HomeRoundedIcon></HomeRoundedIcon>,
   },
   {
     id: 2,
     name: "Lộ trình",
-    iconComponent: "FlightTakeoffRoundedIcon",
+    link: "/learning-path",
+    iconComponent: <FlightTakeoffRoundedIcon></FlightTakeoffRoundedIcon>,
   },
   {
     id: 3,
     name: "Học",
-    iconComponent: "LightbulbRoundedIcon",
+    link: "/learning",
+    iconComponent: <LightbulbRoundedIcon></LightbulbRoundedIcon>,
   },
   {
     id: 4,
     name: "Blog",
-    iconComponent: "LibraryBooksRoundedIcon",
+    link: "/blog",
+    iconComponent: <LibraryBooksRoundedIcon></LibraryBooksRoundedIcon>,
   },
 ];
 

@@ -1,8 +1,7 @@
-import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
 import useStyles from "./styles";
-import { Box, Container, Paper } from "@material-ui/core";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { Box } from "@material-ui/core";
 import SliderImage from "../common/SliderImage";
 import { useSelector } from "react-redux";
 import {
@@ -10,7 +9,7 @@ import {
   coursesFreeSelector,
   postsSelector,
 } from "../../redux/selectors";
-import CourseItem from "./courses/CourseItem";
+import CourseProItem from "./courses/CourseProItem";
 import CourseFreeItem from "./courses/CourseFreeItem";
 import PostItem from "./posts/PostItem";
 import LinkButton from "../common/LinkButton";
@@ -21,7 +20,7 @@ const MainContent = () => {
   const postsOutstanding = useSelector(postsSelector);
 
   return (
-    <Box style={{ flexGrow: 1, margin: "10px 20px" }}>
+    <Box style={{ flexGrow: 1, margin: "85px 20px 20px 20px" }}>
       <Grid container spacing={3}>
         <Grid item sm={12}>
           <SliderImage></SliderImage>
@@ -37,7 +36,7 @@ const MainContent = () => {
 
       <Grid container spacing={3} style={{ padding: "0 50px" }}>
         {coursesPro.map((course) => (
-          <CourseItem key={course.id} course={course}></CourseItem>
+          <CourseProItem key={course.id} course={course}></CourseProItem>
         ))}
       </Grid>
 

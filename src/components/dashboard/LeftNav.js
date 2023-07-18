@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { Box, Paper, Typography } from "@mui/material";
 import useStyles from "./styles";
-import { Stack, display, maxWidth } from "@mui/system";
+import { Link } from "react-router-dom";
 import listNav from "./listLeftNav";
 import LeftNavItem from "./LeftNavItem";
 const LeftNav = () => {
@@ -17,16 +17,15 @@ const LeftNav = () => {
       style={{
         paddingTop: "10px",
         marginLeft: "15px",
-        display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
+        position: "fixed",
+        marginTop: "70px",
       }}
     >
       <Paper
         elevation={0}
         sx={{
-          marginBottom: "15px",
+          marginBottom: "5px",
           height: "60px",
           display: "flex",
           flexDirection: "column",
@@ -45,14 +44,15 @@ const LeftNav = () => {
         </a>
       </Paper>
       {listNav.map((item) => (
-        <LeftNavItem
-          key={item.id}
-          activeId={activeId}
-          id={item.id}
-          name={item.name}
-          icon={item.iconComponent}
-          onClick={() => handleClick(item.id)}
-        ></LeftNavItem>
+        <Link key={item.id} to={`${item.link}`}>
+          <LeftNavItem
+            activeId={activeId}
+            id={item.id}
+            name={item.name}
+            icon={item.iconComponent}
+            onClick={() => handleClick(item.id)}
+          ></LeftNavItem>
+        </Link>
       ))}
     </Box>
   );

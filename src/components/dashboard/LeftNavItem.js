@@ -1,30 +1,9 @@
-import { Paper, Typography } from "@mui/material";
+import { Icon, Paper, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import FlightTakeoffRoundedIcon from "@mui/icons-material/FlightTakeoffRounded";
-import LightbulbRoundedIcon from "@mui/icons-material/LightbulbRounded";
-import LibraryBooksRoundedIcon from "@mui/icons-material/LibraryBooksRounded";
 
 const LeftNavItem = ({ id, activeId, name, icon, onClick }) => {
   const classes = useStyles();
-  let IconComponent;
-  switch (icon) {
-    case "HomeRoundedIcon":
-      IconComponent = HomeRoundedIcon;
-      break;
-    case "FlightTakeoffRoundedIcon":
-      IconComponent = FlightTakeoffRoundedIcon;
-      break;
-    case "LightbulbRoundedIcon":
-      IconComponent = LightbulbRoundedIcon;
-      break;
-    case "LibraryBooksRoundedIcon":
-      IconComponent = LibraryBooksRoundedIcon;
-      break;
-    default:
-      IconComponent = null;
-  }
   const [isHovered, setIsHovered] = useState(false);
   const showBtn = () => {
     setIsHovered(true);
@@ -33,7 +12,7 @@ const LeftNavItem = ({ id, activeId, name, icon, onClick }) => {
     setIsHovered(false);
   };
   return (
-    <a href="#" style={{ textDecoration: "none" }}>
+    <div>
       <Paper
         onClick={onClick}
         onMouseOver={showBtn}
@@ -48,10 +27,10 @@ const LeftNavItem = ({ id, activeId, name, icon, onClick }) => {
         className={`${classes.leftMenuItem}`}
         elevation={0}
       >
-        <IconComponent></IconComponent>
+        {typeof icon === "string" ? { icon } : icon}
         <Typography variant="caption">{name}</Typography>
       </Paper>
-    </a>
+    </div>
   );
 };
 

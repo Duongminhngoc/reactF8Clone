@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   leftMenuItem: {
-    marginBottom: "15px",
+    marginBottom: "5px",
     height: "80px",
     display: "flex",
     flexDirection: "column",
@@ -110,7 +110,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#181821",
     color: "#a9b3bb",
     minHeight: "350px",
-    lineHeight: "1.5",
     padding: "60px 0 60px 0",
   },
 }));
